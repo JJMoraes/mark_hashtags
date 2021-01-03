@@ -163,11 +163,11 @@ export default {
     try {
       const token = localStorage.getItem('token');
       if(!token)
-        this.logout();
+        return this.logout();
       const decodedJwt = jwt_decode(token);
       this.makeMenu(decodedJwt);
     } catch (e) {
-      this.logout();
+      return this.logout();
     }
   },
   methods:{
@@ -177,7 +177,7 @@ export default {
         this.menu = await getHashtags(decodedJwt.id);
       } catch (e) {
         if(e.code == 404 || e.code == 403){
-          this.logout();
+          return this.logout();
         }else{
           this.errorText = e.msg;
           this.errorShow = true;
@@ -199,7 +199,7 @@ export default {
         hashtag.tweets = null;
         let index = this.hashtags.push(hashtag) - 1;
         await this.getTweets(hashtag, index);
-        this.timersIds[index] = setInterval(()=>{this.getTweets(hashtag, index)}, 1500000); 
+        this.timersIds[index] = setInterval(()=>{this.getTweets(hashtag, index)}, 1500000);
       } catch (e) {
         this.errorText = e.msg;
         this.errorShow = true;

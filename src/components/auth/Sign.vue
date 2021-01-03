@@ -35,6 +35,7 @@
         const params = new URLSearchParams(window.location.search);
         if(params.get('oauth_verifier') == null){
           router.push("/login");
+          return;
         }
         await getAccessToken({oauth_verifier:params.get('oauth_verifier')});
         router.push("/");
