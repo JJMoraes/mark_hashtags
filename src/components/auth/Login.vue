@@ -28,7 +28,8 @@
 
 <script>
   import { getAuthorizationUrl } from '@/api/auth/auth-service';
-  import  router  from '@/router/';  
+  import  router  from '@/router/'; 
+   
   export default {
     name:'Login',
     data:()=>({

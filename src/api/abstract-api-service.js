@@ -51,5 +51,5 @@ const _post = async (urlPattern, pathParams, data) => {
 }
 
 export {
-  _get, _del, _post, _put, _patch
+  _get, _del, _post
 }
