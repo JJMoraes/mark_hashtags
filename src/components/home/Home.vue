@@ -18,13 +18,13 @@
       </v-list-item>
       <v-divider/>
       <v-list
-        v-for="hashtag in menu"
+        v-for="(hashtag, menuIndex) in menu"
         :key="hashtag.title"
       >
         <v-list-item link>
-          <v-list-item-title @click="addNewFeed(hashtag)" v-text="hashtag.title"/>
+          <v-list-item-title @click="addNewFeed(hashtag, menuIndex)" v-text="hashtag.title"/>
           <v-list-item-icon>
-            <v-icon @click="deleteHashtag(hashtag)" v-text="'mdi-delete'"/>
+            <v-icon @click="deleteHashtag(hashtag, menuIndex)" v-text="'mdi-delete'"/>
           </v-list-item-icon>
         </v-list-item>
       </v-list>
@@ -36,7 +36,7 @@
           <v-card
             elevation="16"
             max-width="500"
-            min-width="400"
+            min-width="300"
             class="mx-auto"
           >
             <v-toolbar class="white--text" color="#1ca0cc" flat dark>
@@ -63,7 +63,7 @@
                     color="#26c6da"
                     dark
                     max-width="480"
-                    min-width="330"
+                    min-width="280"
                   >
                     <v-card-title>
                       <v-avatar color="grey darken-3">
@@ -194,12 +194,13 @@ export default {
         this.hashtags[index].tweets = this.hashtags[index].tweets?this.hashtags[index].tweets:[];
       }
     },
-    async addNewFeed(hashtag){
+    async addNewFeed(hashtag, menuIndex){
       try {
         hashtag.tweets = null;
         let index = this.hashtags.push(hashtag) - 1;
         await this.getTweets(hashtag, index);
         this.timersIds[index] = setInterval(()=>{this.getTweets(hashtag, index)}, 1500000);
+        this.menu[menuIndex].feedIndex = index;
       } catch (e) {
         this.errorText = e.msg;
         this.errorShow = true;
@@ -211,9 +212,9 @@ export default {
         this.dialog = false;
         this.newHashtag = '';
         const hashtag = {title:title, owner:this.user};
-        this.menu.push(hashtag);
-        const savedHashtag = await saveHashtag(hashtag);
-        await this.addNewFeed(savedHashtag);
+        const createdHashtag = await saveHashtag(hashtag);
+        this.menu.push(createdHashtag);
+        this.drawer = true;
       }catch(e){
         this.errorText = e.msg;
         this.errorShow = true;
@@ -223,8 +224,10 @@ export default {
       clearInterval(this.timersIds[index]);
       this.hashtags.splice(index, 1);
     },
-    async deleteHashtag(hashtag){
+    async deleteHashtag(hashtag, menuIndex){
       try {
+        if(this.menu[menuIndex].feedIndex != null)
+          this.removeFeed(this.menu[menuIndex].feedIndex);
         await deleteHashtag(hashtag.id);
         this.menu.splice(this.menu.indexOf(hashtag),1); 
       } catch (e) {
