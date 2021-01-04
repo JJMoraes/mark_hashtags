@@ -32,11 +32,23 @@
 ### Install Project
 ```git clone https://github.com/JJMoraes/mark_hashtags-front.git```
 
-```cd front-end```
+```cd mark_hashtags```
 
 ```npm install```
 
 ```npm run serve```
+
+## Running with docker
+
+```git clone https://github.com/JJMoraes/mark_hashtags-front.git```
+
+```docker build --pull --rm -f "mark_hashtags/Dockerfile" -t mark_hashtags:latest "mark_hashtags"```
+
+```docker run --rm -d  -p 80:80/tcp mark_hashtags:latest```
+
+> To stop the container use the hash that's appear after the last command
+
+```docker stop {hash}```
 
 ## Show your support ⭐️
 
