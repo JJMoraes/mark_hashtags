@@ -1,7 +1,6 @@
 <h1 align="center">Welcome to Front-End from Mark Hashtags Project 👋</h1>
 
-> This project is a internship challenge from [Magrathea Labs](https://magrathealabs.com). The challenge consists in to build a web application with allow to mark twitter hashtags and collect tweets em retweets with it. Is also possible remove the marked hashtags. After collect, the app should to show the tweets as a list by hashtag on front-end.
-
+>This project is a internship challenge from [Magrathea Labs](https://magrathealabs.com). The challenge consists in to build a web application that's allows to mark twitter hashtags and collect tweets and retweets with it. Is also possible remove the marked hashtags. After collect, the app should to show the tweets as a list by hashtag on front-end.
 
 ## The front-end repository
 
@@ -27,9 +26,10 @@
 
 ### External Requirements
 
-1. We are using [Nodejs 12](nodejs.org)
+1. I'm using [Nodejs 12](nodejs.org)
 
 ### Install Project
+
 ```git clone https://github.com/JJMoraes/mark_hashtags-front.git```
 
 ```cd mark_hashtags```
@@ -39,6 +39,8 @@
 ```npm run serve```
 
 ## Running with docker
+
+> First you'll need to install the [docker](https://docs.docker.com/engine/install/) +19.03 and docker-compose](https://docs.docker.com/compose/install/) +1.17
 
 ```git clone https://github.com/JJMoraes/mark_hashtags-front.git```
 
