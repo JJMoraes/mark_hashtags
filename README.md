@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Front-End from Mark Hashtags Project 👋</h1>
 
->This project is a internship challenge from [Magrathea Labs](https://magrathealabs.com). The challenge consists in to build a web application that's allows to mark twitter hashtags and collect tweets and retweets with it. Is also possible remove the marked hashtags. After collect, the app should to show the tweets as a list by hashtag on front-end.
+>This project is an internship challenge from [Magrathea Labs](https://magrathealabs.com). The challenge consists in to build a web application that's allows to mark twitter hashtags and collect tweets and retweets with it. Is also possible remove the marked hashtags. After collect, the app should to show the tweets as a list by hashtag on front-end.
 
 ## The front-end repository
 
