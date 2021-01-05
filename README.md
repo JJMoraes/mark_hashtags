@@ -32,7 +32,7 @@
 
 ```git clone https://github.com/JJMoraes/mark_hashtags-front.git```
 
-```cd mark_hashtags```
+```cd mark_hashtags-front ```
 
 ```npm install```
 
@@ -44,7 +44,7 @@
 
 ```git clone https://github.com/JJMoraes/mark_hashtags-front.git```
 
-```docker build --pull --rm -f "mark_hashtags/Dockerfile" -t mark_hashtags:latest "mark_hashtags"```
+```docker build --pull --rm -f "mark_hashtags-front/Dockerfile" -t mark_hashtags:latest "mark_hashtags-front"```
 
 ```docker run --rm -d  -p 80:80/tcp mark_hashtags:latest```
 
